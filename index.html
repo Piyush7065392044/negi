@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favourite Person ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #e5d5ff);
+    color: #553047;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fade 0.6s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+h1 {
+    font-size: clamp(27px, 5vw, 42px);
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 12px auto;
+    max-width: 650px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(255,255,255,0.85);
+    padding: 18px;
+    border-radius: 22px;
+    width: min(100%, 290px);
+    box-shadow: 0 8px 25px #9d719d35;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+button, .link {
+    border: none;
+    background: #e75480;
+    color: white;
+    padding: 13px 23px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 12px 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+button:hover, .link:hover {
+    background: #c52c63;
+    transform: scale(1.04);
+}
+
+.back {
+    background: #8565a7;
+}
+
+.heart {
+    font-size: 75px;
+    animation: beat 1s infinite;
+}
+
+.note {
+    background: #ffffffb8;
+    padding: 22px;
+    border-radius: 20px;
+    max-width: 650px;
+    margin: 18px auto;
+    box-shadow: 0 5px 20px #8d668322;
+}
+
+a {
+    color: #c52c63;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@media (max-width: 600px) {
+    .choices { gap: 18px; }
+    .page { padding: 25px 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: CHOOSE ONE -->
+<section class="page active" id="home">
+    <h1>Chalo Ji, Choose One! 💗</h1>
+    <p>Ab dekhte hain aaj tumhara dil kahan jaane ka hai...</p>
+
+    <div class="choices">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700"
+                 alt="Beautiful mountains">
+            <h2>⛰️ Chal, Pahadon Mein!</h2>
+            <p>Chal lag gaya ya pahadon ko dekh kar pagal hona hai? 😂</p>
+            <button onclick="showPage('mountain')">Chalo Pahadon Mein ❤️</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=700"
+                 alt="Beautiful river">
+            <h2>🌊 River Ke Paas</h2>
+            <p>Paani dekh kar pagal hona hai ya kisi ki aankhon mein doobna hai? 😉</p>
+            <button onclick="showPage('river')">River Ke Paas Chalo 💕</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 2: MOUNTAINS -->
+<section class="page" id="mountain">
+    <h1>Welcome to Uttarakhand! ⛰️</h1>
+
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800"
+         alt="Himalayan mountains"
+         style="width:min(100%,600px);height:280px;object-fit:cover;border-radius:22px;">
+
+    <div class="note">
+        <h2>Pahadon Mein Jaane Ke Fayde 💚</h2>
+        <p>🌿 Thandi hawa aur sukoon milta hai.</p>
+        <p>🏔️ Khoobsurat nazare dekhne ko milte hain.</p>
+        <p>📸 Photos aur yaadein dono zabardast banti hain.</p>
+        <p>❤️ Aur agar tum saath ho, toh har raasta special ban jaata hai.</p>
+    </div>
+
+    <div class="note">
+        <h2>Ek Chhoti Si Flirty Baat 😉</h2>
+        <p>
+            Pahadon ki khoobsurti apni jagah hai,
+            lekin tum saamne aa jao toh nazara badal jaata hai.
+            Aur mere nakhron ko dekh kar toh tumhe
+            khud se hi pyaar ho jaayega! 😌❤️
+        </p>
+    </div>
+
+    <button onclick="showPage('final')">Aage Ek Surprise Hai 💌</button>
+    <button class="back" onclick="showPage('home')">← Wapas Chalo</button>
+</section>
+
+<!-- PAGE 3: RIVER -->
+<section class="page" id="river">
+    <h1>River Ke Paas Chalo! 🌊</h1>
+
+    <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=800"
+         alt="Peaceful river"
+         style="width:min(100%,600px);height:280px;object-fit:cover;border-radius:22px;">
+
+    <div class="note">
+        <h2>River Ke Paas Jaane Ke 3 Fayde 😍</h2>
+        <p>1. Paani ki awaaz se mind relax hota hai.</p>
+        <p>2. Nature ke saath quality time milta hai.</p>
+        <p>3. Kisi special ke saath jao toh yaadein ban jaati hain.</p>
+    </div>
+
+    <div class="note">
+        <h2>Ab 3 Nuksaan Bhi Sun Lo 😂</h2>
+        <p>1. Wapas aane ka mann nahi karega.</p>
+        <p>2. Photos lete-lete phone ki battery khatam ho sakti hai.</p>
+        <p>3. Tum saath hue toh river se zyada tumhe dekhne ka mann karega. 🙈</p>
+    </div>
+
+    <div class="note">
+        <h2>SSB Interview Wala Bonus 🎖️</h2>
+        <p>
+            Interview mein poochhein: "River ke paas jaane ka sabse bada fayda kya hai?"
+            Toh kehna: "Sir, nature ko enjoy karna."
+            Aur dil kahe: "Agar woh saath ho, toh har jagah perfect hai!" ❤️
+        </p>
+    </div>
+
+    <button onclick="showPage('final')">Ab Last Page Dekho 💗</button>
+    <button class="back" onclick="showPage('home')">← Wapas Chalo</button>
+</section>
+
+<!-- PAGE 4: LOVE MESSAGE -->
+<section class="page" id="final">
+    <div class="heart">❤️</div>
+
+    <h1>Oye Mere Bachche! 🥹💕</h1>
+
+    <div class="note">
+        <p>
+            Tujhse milkar lagta hi nahi ki abhi-abhi mile hain.
+            Aisa lagta hai jaise tu wahi hai jiska
+            pata nahi kab se intezaar tha.
+        </p>
+
+        <p>
+            Chalo, ab tum yahan tak aa hi gaye ho,
+            toh thoda sa thehar jao...
+            ek pyaari si smile karo 😊
+        </p>
+
+        <p>
+            Aur haan, idhar dekho... neeche! 👇
+        </p>
+
+        <h1 style="color:#e75480;">I LOVE YOU, MERA BACHCHA! 💖</h1>
+
+        <p>
+            Pata hai, tumhari smile na...
+            bina permission liye mera mood achha kar deti hai. 🫶
+        </p>
+
+        <p>
+            Tum chocolate hote toh kabhi share nahi karti,
+            aur agar tum chai hote toh har roz tumhe hi choose karti. ☕😘
+        </p>
+
+        <p><b> my baby green chasme me or achi lagti with open hair 🥺</b></p>
+
+        <button onclick="loveAnswer()">Haan Ji, Bahut Saara! ❤️</button>
+        <button class="back" onclick="showPage('home')">Ek Baar Phir Se 💌</button>
+
+        <p id="answer" style="font-weight:bold;color:#c52c63;"></p>
+    </div>
+</section>
+
+<script>
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(function(page) {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function loveAnswer() {
+    document.getElementById('answer').innerHTML =
+        "Hehe! Mujhe pehle se pata tha! 🥰💋 Ab ek cute si smile do!";
+}
+</script>
+
+</body>
+</html>
